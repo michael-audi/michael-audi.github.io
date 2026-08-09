@@ -22,7 +22,7 @@ window.addEventListener("resize", resizeCanvas);
 
 const ball = {
     x: window.innerWidth / 2,
-    y: 100,
+    y: -50,
 
     radius: 20,
 
