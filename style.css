@@ -1,0 +1,44 @@
+/* ------------------------------
+   Global
+------------------------------ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f7f7f5;
+    color: #111;
+}
+
+
+/* ------------------------------
+   Hero
+------------------------------ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 8%;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    margin: 0;
+    letter-spacing: -0.06em;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    color: #555;
+}
