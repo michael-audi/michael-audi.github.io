@@ -2,12 +2,12 @@ const canvas = document.getElementById("physicsCanvas");
 const ctx = canvas.getContext("2d");
 
 
-// ------------------------------
-// Canvas setup
-// ------------------------------
+// ==============================
+// Canvas
+// ==============================
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth * 0.70;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 
@@ -16,12 +16,28 @@ resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
 
-// ------------------------------
+// ==============================
+// Physics area
+// ==============================
+
+// The physics simulation occupies
+// the right 70% of the screen.
+
+function physicsLeft() {
+    return canvas.width * 0.30;
+}
+
+function physicsWidth() {
+    return canvas.width * 0.70;
+}
+
+
+// ==============================
 // Ball
-// ------------------------------
+// ==============================
 
 const ball = {
-    x: canvas.width / 2,
+    x: physicsLeft() + physicsWidth() / 2,
     y: -50,
 
     radius: 20,
@@ -32,9 +48,9 @@ const ball = {
 };
 
 
-// ------------------------------
+// ==============================
 // Platform
-// ------------------------------
+// ==============================
 
 function drawPlatform() {
 
@@ -42,19 +58,27 @@ function drawPlatform() {
 
     ctx.beginPath();
 
-    ctx.moveTo(0, platformY);
-    ctx.lineTo(canvas.width, platformY);
+    ctx.moveTo(
+        physicsLeft(),
+        platformY
+    );
+
+    ctx.lineTo(
+        canvas.width,
+        platformY
+    );
 
     ctx.strokeStyle = "#111";
-    ctx.lineWidth = 4;
+
+    ctx.lineWidth = 6;
 
     ctx.stroke();
 }
 
 
-// ------------------------------
+// ==============================
 // Physics
-// ------------------------------
+// ==============================
 
 function update() {
 
@@ -64,9 +88,9 @@ function update() {
 }
 
 
-// ------------------------------
+// ==============================
 // Drawing
-// ------------------------------
+// ==============================
 
 function draw() {
 
@@ -78,7 +102,12 @@ function draw() {
     );
 
 
-    // Ball
+    // Draw the platform
+
+    drawPlatform();
+
+
+    // Draw the ball
 
     ctx.beginPath();
 
@@ -93,17 +122,12 @@ function draw() {
     ctx.fillStyle = "#111";
 
     ctx.fill();
-
-
-    // Platform
-
-    drawPlatform();
 }
 
 
-// ------------------------------
+// ==============================
 // Animation
-// ------------------------------
+// ==============================
 
 function animate() {
 
