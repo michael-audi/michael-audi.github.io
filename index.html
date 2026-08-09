@@ -3,30 +3,812 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Michael Audi — computer science, mathematics, and projects."
+    >
 
     <title>Michael Audi</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <script
+        src="script.js"
+        defer
+    ></script>
 </head>
 
 <body>
 
-    <main class="hero">
 
-        <canvas id="physicsCanvas"></canvas>
+    <!-- =====================================================
+         HOME / SCROLL-DRIVEN HERO
+    ====================================================== -->
 
-        <div class="hero-content">
-            <h1>Michael<br>Audi</h1>
+    <div
+        id="home"
+        class="hero-scroll"
+    >
 
-            <p>
-                Computer Science · Mathematics · Building Things
+        <section class="hero">
+
+
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <section
+                class="intro"
+                aria-labelledby="page-title"
+            >
+
+
+                <!-- Navigation -->
+
+                <nav
+                    class="site-nav"
+                    aria-label="Main navigation"
+                >
+
+                    <a
+                        href="#home"
+                        class="nav-link"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="#about"
+                        class="nav-link"
+                    >
+                        About
+                    </a>
+
+                    <a
+                        href="#projects"
+                        class="nav-link"
+                    >
+                        Projects
+                    </a>
+
+                    <a
+                        href="#resume"
+                        class="nav-link"
+                    >
+                        Resume
+                    </a>
+
+                </nav>
+
+
+                <!-- Main introduction -->
+
+                <div class="intro-inner">
+
+                    <p class="eyebrow">
+                        Portfolio / 2026
+                    </p>
+
+                    <h1 id="page-title">
+
+                        <span>
+                            Michael
+                        </span>
+
+                        <span>
+                            Audi
+                        </span>
+
+                    </h1>
+
+
+                    <p class="tagline">
+                        Computer Science · Mathematics · Building Things
+                    </p>
+
+
+                    <p class="intro-copy">
+                        I like turning questions into software.
+                    </p>
+
+
+                    <nav
+                        class="social-links"
+                        aria-label="Social links"
+                    >
+
+                        <a
+                            href="https://github.com/michael-audi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+
+                        <a
+                            href="https://www.linkedin.com/in/michael-audi-502a50367/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+
+                        <a
+                            href="https://www.instagram.com/_michaelaudi/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <!-- Scroll transition content -->
+
+                <div
+                    class="intro-next sim-story"
+                    aria-hidden="true"
+                >
+
+                    <p class="eyebrow">
+                        Where this started
+                    </p>
+
+                    <h2>
+                        The project I kept coming back to.
+                    </h2>
+
+                    <p class="sim-story-copy">
+                        Years ago, I built a physics sandbox in Scratch with bouncing balls, angled platforms, collisions, and spawners. I rebuilt it here in JavaScript as the interactive introduction to my portfolio.
+                    </p>
+
+                    <p class="sim-story-cta">
+                        Scroll down to see what I've built since
+                    <span>↓</span>
+                    </p>
+                </div>
+
+
+                <a
+                    class="scroll-note"
+                    href="#about"
+                >
+                    Keep scrolling
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PHYSICS SIDE
+            ================================================== -->
+
+            <section
+                class="sim-shell"
+                aria-label="Interactive physics simulation"
+            >
+
+                <canvas
+                    id="physicsCanvas"
+                    aria-label="Interactive physics sandbox. Click to create a ball or drag to launch one."
+                ></canvas>
+
+
+                <div class="sim-info">
+
+                    <p class="sim-kicker">
+                        Interactive Physics
+                    </p>
+
+                    <p class="sim-description">
+                        Inspired by my original Scratch physics engine.
+                    </p>
+
+                </div>
+
+
+                <div class="sim-controls">
+
+                    <span
+                        id="ballCount"
+                        class="ball-count"
+                        aria-live="polite"
+                    >
+                        0 balls
+                    </span>
+
+                    <button
+                        id="autoButton"
+                        type="button"
+                    >
+                        Auto on
+                    </button>
+
+                    <button
+                        id="pauseButton"
+                        type="button"
+                    >
+                        Pause
+                    </button>
+
+                    <button
+                        id="resetButton"
+                        type="button"
+                    >
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <div class="sim-hint">
+
+                    <span class="desktop-hint">
+                        Click to drop
+                        <span class="dot">·</span>
+
+                        Drag to throw
+                        <span class="dot">·</span>
+
+                        Space pauses
+                        <span class="dot">·</span>
+
+                        R resets
+                    </span>
+
+                    <span class="mobile-hint">
+                        Tap to drop · drag to throw
+                    </span>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+        id="about"
+        class="portfolio-section about-section"
+    >
+
+        <div class="section-heading reveal">
+
+            <p class="section-number">
+                01
             </p>
+
+            <div>
+
+                <p class="section-eyebrow">
+                    About
+                </p>
+
+                <h2>
+                    About Me
+                </h2>
+
+            </div>
+
         </div>
 
-    </main>
 
-    <script src="script.js"></script>
+        <div class="about-feature">
+
+
+            <!-- Left copy -->
+
+            <div class="about-story reveal">
+
+                <p class="about-big">
+                    I’m drawn to the point where curiosity turns into something I can build.
+                </p>
+
+                <div class="about-body">
+
+                    <p>
+                        A lot of my projects begin with a question I don’t know how to answer.
+                        I’ll get curious about a system, an algorithm, or a mathematical idea,
+                        and instead of leaving it there, I usually try to recreate it myself.
+                    </p>
+
+                    <p>
+                        That started with Scratch projects and physics simulations, and over time
+                        grew into Java, Python, JavaScript, chess engines, puzzle solvers,
+                        automation tools, and mathematical visualizations.
+                    </p>
+
+                    <p>
+                        What I enjoy most is the combination of mathematics and computer science:
+                        taking something abstract and turning it into something interactive,
+                        visual, or useful.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Photo -->
+
+            <div class="about-photo reveal">
+
+                <div class="photo-frame">
+
+                    <!--
+                        Replace this block later with:
+
+                        <img
+                            src="assets/michael.jpg"
+                            alt="Michael Audi"
+                        >
+                    -->
+
+                    <div class="photo-placeholder">
+
+                        <span>
+                            Your photo here
+                        </span>
+
+                        <small>
+                            assets/michael.jpg
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <p class="photo-caption">
+                    Wellesley, Massachusetts
+                </p>
+
+            </div>
+
+        </div>
+
+
+        
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section
+        id="projects"
+        class="portfolio-section projects-section"
+    >
+
+        <div class="section-heading reveal">
+
+            <p class="section-number">
+                02
+            </p>
+
+            <div>
+
+                <p class="section-eyebrow">
+                    Selected Work
+                </p>
+
+                <h2>
+                    Projects
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="projects-list">
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    01
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        JavaScript · Physics · Mathematics
+                    </p>
+
+                    <h3>
+                        Interactive Physics Engine
+                    </h3>
+
+                    <p class="project-description">
+                        A browser-based 2D physics sandbox rebuilt from one of my favorite
+                        Scratch projects. It handles arbitrary line-segment collisions,
+                        vector-based reflection, gravity, restitution, friction, and
+                        ball-to-ball impulse collisions.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        You're using it
+                    </span>
+
+                    <a
+                        href="#home"
+                        class="project-link"
+                    >
+                        Try it ↑
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    02
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        JavaScript · Algorithms
+                    </p>
+
+                    <h3>
+                        Block Blast Solver
+                    </h3>
+
+                    <p class="project-description">
+                        An algorithmic solver that analyzes an 8×8 Block Blast board
+                        and searches possible piece placements to find viable solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        Live
+                    </span>
+
+                    <a
+                        href="https://michael-audi.github.io/BlockBlastSolver/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        Open project ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    03
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        Java · Algorithms
+                    </p>
+
+                    <h3>
+                        Chess Engine
+                    </h3>
+
+                    <p class="project-description">
+                        A chess engine built in Java to explore board representation,
+                        move generation, game logic, and algorithmic decision-making.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        In development
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    04
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        Python · Manim · Mathematics
+                    </p>
+
+                    <h3>
+                        Mathematical Visualizations
+                    </h3>
+
+                    <p class="project-description">
+                        An ongoing collaborative project using Python and Manim
+                        to turn mathematical ideas into animated visual explanations.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        Ongoing
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    05
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        Python · Tkinter · Automation
+                    </p>
+
+                    <h3>
+                        Homework Creator
+                    </h3>
+
+                    <p class="project-description">
+                        A Python desktop application built to organize homework,
+                        estimate completion time, and automatically send formatted reminders.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        GitHub
+                    </span>
+
+                    <a
+                        href="https://github.com/michael-audi/homeworkEmail"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        Source ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-row reveal">
+
+                <div class="project-number">
+                    06
+                </div>
+
+
+                <div class="project-main">
+
+                    <p class="project-type">
+                        HTML · CSS · JavaScript
+                    </p>
+
+                    <h3>
+                        Interactive Periodic Table
+                    </h3>
+
+                    <p class="project-description">
+                        A browser-based interactive periodic table created to make
+                        chemical-element information easier to explore.
+                    </p>
+
+                </div>
+
+
+                <div class="project-meta">
+
+                    <span class="project-status">
+                        GitHub
+                    </span>
+
+                    <a
+                        href="https://github.com/michael-audi/web-based-interactive-periodic-table"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        Source ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESUME
+    ====================================================== -->
+
+    <section
+        id="resume"
+        class="portfolio-section resume-section"
+    >
+
+        <div class="section-heading reveal">
+
+            <p class="section-number">
+                03
+            </p>
+
+            <div>
+
+                <p class="section-eyebrow">
+                    Experience
+                </p>
+
+                <h2>
+                    Resume
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-list">
+
+            <article class="experience-row reveal">
+
+                <div class="experience-date">
+                    2024 — Present
+                </div>
+
+
+                <div class="experience-main">
+
+                    <h3>
+                        Russian School of Mathematics
+                    </h3>
+
+                    <p class="experience-role">
+                        Head Math Tutor
+                    </p>
+
+                    <p>
+                        Work with students across mathematics, support other tutors,
+                        and help with program organization.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="experience-row reveal">
+
+                <div class="experience-date">
+                    Class of 2027
+                </div>
+
+
+                <div class="experience-main">
+
+                    <h3>
+                        Wellesley High School
+                    </h3>
+
+                    <p class="experience-role">
+                        Student
+                    </p>
+
+                    <p>
+                        Coursework and projects centered around mathematics,
+                        computer science, and related technical fields.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="resume-note reveal">
+
+            <p>
+                Full downloadable resume coming soon.
+            </p>
+
+            <a href="#home">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="footer">
+
+        <p>
+            Michael Audi
+        </p>
+
+        <p>
+            Built from scratch with HTML, CSS & JavaScript.
+        </p>
+
+        <a href="#home">
+            Top ↑
+        </a>
+
+    </footer>
 
 </body>
 
