@@ -7,7 +7,7 @@ const ctx = canvas.getContext("2d");
 // ------------------------------
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth * 0.70;
     canvas.height = window.innerHeight;
 }
 
@@ -21,7 +21,7 @@ window.addEventListener("resize", resizeCanvas);
 // ------------------------------
 
 const ball = {
-    x: window.innerWidth / 2,
+    x: canvas.width / 2,
     y: -50,
 
     radius: 20,
@@ -33,25 +33,53 @@ const ball = {
 
 
 // ------------------------------
-// Animation
+// Platform
+// ------------------------------
+
+function drawPlatform() {
+
+    const platformY = canvas.height * 0.75;
+
+    ctx.beginPath();
+
+    ctx.moveTo(0, platformY);
+    ctx.lineTo(canvas.width, platformY);
+
+    ctx.strokeStyle = "#111";
+    ctx.lineWidth = 4;
+
+    ctx.stroke();
+}
+
+
+// ------------------------------
+// Physics
 // ------------------------------
 
 function update() {
 
-    // Gravity accelerates the ball downward
     ball.velocityY += ball.gravity;
 
-    // Move the ball
     ball.y += ball.velocityY;
 }
 
 
+// ------------------------------
+// Drawing
+// ------------------------------
+
 function draw() {
 
-    // Clear the screen
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-    // Draw the ball
+
+    // Ball
+
     ctx.beginPath();
 
     ctx.arc(
@@ -65,8 +93,17 @@ function draw() {
     ctx.fillStyle = "#111";
 
     ctx.fill();
+
+
+    // Platform
+
+    drawPlatform();
 }
 
+
+// ------------------------------
+// Animation
+// ------------------------------
 
 function animate() {
 
