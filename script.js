@@ -18,7 +18,7 @@ const SETTINGS = {
     platformRestitution: 0.42,
     platformFriction: 0.0005,
     floorFriction: 0.985,
-    maxSpeed: 1500,
+    maxSpeed: 2000,
     maxBalls: 90,
     solverIterations: 2,
     fixedStep: 1 / 120,
@@ -109,7 +109,7 @@ class Ball {
         this.vx = options.vx ?? 0;
         this.vy = options.vy ?? 0;
 
-        this.radius = options.radius ?? random(10, 17);
+        this.radius = options.radius ?? random(7, 45);
         this.color = options.color ?? randomColor();
 
         this.mass = this.radius * this.radius;
